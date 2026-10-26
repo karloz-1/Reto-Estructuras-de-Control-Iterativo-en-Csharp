@@ -60,13 +60,16 @@ while (intentos > 0)
     if (intentoClave != clave)
     {
         System.Console.WriteLine($"Clave incorrecta. Intentos restantes: {intentos}");
+        if (intentos == 0)
+        {
+            System.Console.WriteLine("Acceso bloqueado");
+        }
     }
     else
     {
         System.Console.WriteLine("Acceso concedido.");
         break;
     }
-    System.Console.WriteLine("Acceso bloqueado");
 }
 
 // =============== MENÚ PRINCIPAL ===============
