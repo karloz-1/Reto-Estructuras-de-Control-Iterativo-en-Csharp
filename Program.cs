@@ -42,3 +42,66 @@ for (int i = 0; i < calificaciones.Length; i += 2)
     System.Console.WriteLine($"Posición par: {calificaciones[i]}");
 }
 System.Console.WriteLine();
+
+
+// ==================================================================================================
+//                  Sección 2
+// ==================================================================================================
+// =============== CONTROL DE ACCESO ===============
+System.Console.WriteLine("=== CONTROL DE ACCESO ===");
+int intentos = 3;
+string clave = "sena2025";
+while (intentos > 0)
+{
+    intentos -= 1;
+    System.Console.WriteLine("Ingresa la clave: ");
+    string intentoClave = Console.ReadLine();
+
+    if (intentoClave != clave)
+    {
+        System.Console.WriteLine($"Clave incorrecta. Intentos restantes: {intentos}");
+    }
+    else
+    {
+        System.Console.WriteLine("Acceso concedido.");
+        break;
+    }
+    System.Console.WriteLine("Acceso bloqueado");
+}
+
+// =============== MENÚ PRINCIPAL ===============
+string menu = @"1. Ver promedio del grupo
+2. Ver calificación más alta
+3. Salir";
+int opcionElegida = 0;
+do
+{
+    System.Console.WriteLine();
+    System.Console.WriteLine(menu);
+    opcionElegida = int.Parse(Console.ReadLine());
+    System.Console.WriteLine();
+
+    switch (opcionElegida)
+    {
+        case 1:
+            System.Console.WriteLine($"Promedio del grupo: {promedio}");
+            break;
+        case 2:
+            int calificacionMasAlta = 0;
+            foreach (int calificacion in calificaciones)
+            {
+                if (calificacion >= calificacionMasAlta)
+                {
+                    calificacionMasAlta = calificacion;
+                }
+            }
+            System.Console.WriteLine($"Calificación más alta: {calificacionMasAlta}");
+            break;
+        case 3:
+            System.Console.WriteLine("Hasta luego.");
+            break;
+        default:
+            System.Console.WriteLine("Opción no valida, intenta de nuevo");
+            break;
+    }
+} while (opcionElegida != 3);
