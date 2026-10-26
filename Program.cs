@@ -105,3 +105,53 @@ do
             break;
     }
 } while (opcionElegida != 3);
+
+
+// ==================================================================================================
+//                  Sección 3
+// ==================================================================================================
+// =============== PRIMERA CALIFICACIÓN REPROBATORIA ===============
+for (int i = 0; i < calificaciones.Length; i++)
+{
+    if (calificaciones[i] < 60)
+    {
+        System.Console.WriteLine($"Encontrada en posición {i + 1}: {calificaciones[i]}");
+        break;
+    }
+
+}
+System.Console.WriteLine();
+
+// =============== ESTUDIANTES APROBADOS ===============
+System.Console.WriteLine("=== PRIMERA CALIFICACIÓN REPROBATORIA ===");
+int estudiantesAprobados = 0;
+foreach (int calificacion in calificaciones)
+{
+    if (calificacion < 60)
+    {
+        continue;
+    }
+    estudiantesAprobados += 1;
+    System.Console.WriteLine($"Aprobado: {calificacion}");
+}
+System.Console.WriteLine($"Total aprobados: {estudiantesAprobados}");
+System.Console.WriteLine();
+
+// =============== FILTRO COMBINADO ===============
+System.Console.WriteLine("=== FILTRO COMBINADO ===");
+for (int i = 0; i < calificaciones.Length; i++)
+{
+    if (calificaciones[i] < 70)
+    {
+        continue;
+    }
+    else if (calificaciones[i] >= 95)
+    {
+        System.Console.WriteLine($"Búsqueda detenida al encontrar: {calificaciones[i]}");
+        break;
+    }
+    else
+    {
+        System.Console.WriteLine($"Calificación procesada: {calificaciones[i]}");
+    }
+}
